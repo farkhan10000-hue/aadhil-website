@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aadhil | Video Editor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#0a0a0f;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:radial-gradient(circle at top,#00ffd5,#001814);
+padding:20px;
+}
+
+header h1{
+font-size:2.8rem;
+animation:fadeDown 1s ease;
+}
+
+header p{opacity:.9;max-width:600px}
+
+/* BUTTONS */
+.btn,button{
+margin-top:20px;
+padding:15px 35px;
+border-radius:40px;
+background:#00ffd5;
+color:#000;
+font-weight:600;
+border:none;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover,button:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00ffd5,0 0 40px rgba(0,255,213,.5);
+}
+
+/* SECTIONS */
+section{
+padding:70px 20px;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+color:#00ffd5;
+margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+/* CARD */
+.card{
+background:#15151f;
+padding:25px;
+border-radius:18px;
+animation:float 6s ease-in-out infinite;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(0,255,213,.15);
+}
+
+.price{color:#00ffd5;font-weight:600}
+
+/* FORM */
+form{
+background:#15151f;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,255,213,.15);
+}
+
+form input,form textarea,select{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+margin-bottom:15px;
+font-family:inherit;
+background:#0f0f14;
+color:#fff;
+}
+
+form input:focus,form textarea:focus,select:focus{
+outline:none;
+box-shadow:0 0 0 2px #00ffd5;
+transform:scale(1.02);
+}
+
+select option{
+background:#15151f;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-btn{
+animation:pulse 2s infinite;
+}
+
+/* REVEAL */
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all .9s ease;
+}
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+background:#0f0f14;
+padding:30px;
+text-align:center;
+font-size:14px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-40px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(0,255,213,.7)}
+70%{box-shadow:0 0 0 20px rgba(0,255,213,0)}
+100%{box-shadow:0 0 0 0 rgba(0,255,213,0)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Aadhil — Video Editor</h1>
+<p>High-engagement YouTube videos, Reels & Shorts. Worldwide service.</p>
+<a href="#order" class="btn">Hire Me</a>
+</header>
+
+<section class="reveal">
+<h2>👋 About Me</h2>
+<p style="text-align:center;max-width:750px;margin:auto;">
+Hi, I’m <strong>Aadhil</strong> from <strong>Sri Lanka</strong>.  
+I create clean, modern edits with smooth transitions, subtitles,
+and effects that keep viewers watching.
+</p>
+</section>
+
+<section class="reveal">
+<h2>💼 Services</h2>
+<div class="grid">
+<div class="card">
+<h3>🎬 Instagram Reels</h3>
+<p>High-engagement vertical edits</p>
+<p class="price">$5 / video</p>
+</div>
+<div class="card">
+<h3>⚡ YouTube Shorts</h3>
+<p>Fast-paced retention edits</p>
+<p class="price">$5 / video</p>
+</div>
+<div class="card">
+<h3>🎥 YouTube Long Videos</h3>
+<p>Clean cuts & sound balance</p>
+<p class="price">$20+</p>
+</div>
+</div>
+</section>
+
+<section class="reveal" id="order">
+<h2>📩 Place an Order</h2>
+
+<form id="orderForm">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+
+<select id="service" required>
+<option value="" disabled selected>Select a Service</option>
+<option value="Instagram Reel Editing">Instagram Reel Editing</option>
+<option value="YouTube Shorts Editing">YouTube Shorts Editing</option>
+<option value="YouTube Long Video Editing">YouTube Long Video Editing</option>
+<option value="Custom Video Editing">Custom Video Editing</option>
+</select>
+
+<p id="priceDisplay" style="color:#00ffd5;font-weight:600;">Price: —</p>
+
+<label>Upload Photos / Videos (Optional)</label>
+<input type="file" multiple accept="image/*,video/*">
+
+<textarea id="details" placeholder="Describe your project" required></textarea>
+
+<button id="sendBtn" class="whatsapp-btn">Send Order via WhatsApp</button>
+</form>
+
+<div id="successBox" style="display:none;text-align:center;margin-top:20px;color:#00ffd5;font-weight:600;">
+✅ Order ready! Opening WhatsApp…
+</div>
+</section>
+
+<section class="reveal" style="text-align:center;">
+<h2>📞 Contact</h2>
+<a class="btn" href="mailto:aadhilfarkhan20@gmail.com">Email</a>
+<a class="btn" href="https://wa.me/94728499175">WhatsApp</a>
+</section>
+
+<footer>
+© 2026 Aadhil | Video Editor • Sri Lanka
+</footer>
+
+<script>
+// reveal animation
+document.addEventListener("scroll",()=>{
+document.querySelectorAll(".reveal").forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add("active");
+}
+});
+});
+
+// auto price
+service.addEventListener("change",()=>{
+const prices={
+"Instagram Reel Editing":"$5 per video",
+"YouTube Shorts Editing":"$5 per video",
+"YouTube Long Video Editing":"$20+ per video",
+"Custom Video Editing":"Price discussed on WhatsApp"
+};
+priceDisplay.innerText="Price: "+prices[service.value];
+});
+
+// WhatsApp order
+orderForm.addEventListener("submit",e=>{
+e.preventDefault();
+successBox.style.display="block";
+sendBtn.innerText="Processing...";
+
+const msg=`Hello Aadhil,%0A%0AName: ${name.value}%0AEmail: ${email.value}%0AService: ${service.value}%0ADetails: ${details.value}`;
+
+setTimeout(()=>{
+window.open(`https://wa.me/94728499175?text=${msg}`,"_blank");
+sendBtn.innerText="Send Order via WhatsApp";
+},1000);
+});
+</script>
+
+</body>
+</html>
